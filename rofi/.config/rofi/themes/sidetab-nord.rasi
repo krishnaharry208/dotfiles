@@ -26,27 +26,27 @@
 #mainbox {
     background-color: @background;
     children: [inputbar, listview];
-    spacing: 0px;
+    spacing: -10px;
 }
 
 #inputbar {
     children: [prompt, entry];
     background-color: @background-alt;
-    padding: 15px;
+    padding: 10px;
     /* Adding a small border bottom for separation */
     border: 0 0 2px 0;
     border-color: @background;
 }
 
 #prompt {
-    font: "MesloLGS NF 14"; 
+    font: "MesloLGS NF 15"; 
     background-color: inherit;
     text-color: @accent; /* Accent color makes the icon pop */
-    padding: 0 10px 0 5px;
+    padding: 0 30px 0 5px;
 }
 
 #entry {
-    font: "Sora Regular 13";
+    font: "Sora Regular 15";
     background-color: inherit;
     text-color: @foreground;
     placeholder: "Search...";

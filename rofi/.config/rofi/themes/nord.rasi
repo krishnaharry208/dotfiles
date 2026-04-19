@@ -1,127 +1,114 @@
-/**
- * Nordic rofi theme
- * Adapted by undiabler <undiabler@gmail.com>
- *
- * Nord Color palette imported from https://www.nordtheme.com/
- *
- */
-
+/*******************************************************************************
+ * ULTRA-CLEAN JETBRAINS MONO FLOATING SIDEBAR
+ *******************************************************************************/
 
 * {
-	nord0: #2e3440;
-	nord1: #3b4252;
-	nord2: #434c5e;
-	nord3: #4c566a;
-
-	nord4: #d8dee9;
-	nord5: #e5e9f0;
-	nord6: #eceff4;
-
-	nord7: #8fbcbb;
-	nord8: #88c0d0;
-	nord9: #81a1c1;
-	nord10: #5e81ac;
-	nord11: #bf616a;
-
-	nord12: #d08770;
-	nord13: #ebcb8b;
-	nord14: #a3be8c;
-	nord15: #b48ead;
-
-    foreground:  @nord9;
-    backlight:   #ccffeedd;
-    background-color:  transparent;
-
-    highlight:     underline bold #eceff4;
-
-    transparent: rgba(46,52,64,0);
+    /* Color Palette - Deeper One Dark */
+    bg:          #1e222a;
+    bg-alt:      #282c34;
+    fg:          #abb2bf;
+    accent:      #61afef;
+    selected:    #353b45;
+    grey:        #5c6370;
+    
+    /* Font - Optimized for JetBrains Mono */
+    font: "JetBrainsMono Nerd Font 11";
 }
 
 window {
-    location: center;
-    anchor:   center;
-    transparency: "screenshot";
-    padding: 10px;
-    border:  0px;
-    border-radius: 6px;
-
-    background-color: @transparent;
-    spacing: 0;
-    children:  [mainbox];
-    orientation: horizontal;
+    width:            380px;
+    height:           100%;
+    location:         west;
+    anchor:           west;
+    background-color: @bg;
+    /* Removed the side border as requested */
+    border:           0px;
 }
 
 mainbox {
-    spacing: 0;
-    children: [ inputbar, message, listview ];
-}
-
-message {
-    color: @nord0;
-    padding: 5;
-    border-color: @foreground;
-    border:  0px 2px 2px 2px;
-    background-color: @nord7;
+    background-color: transparent;
+    children:         [ inputbar, listview ];
+    spacing:          20px;
+    padding:          30px 15px;
 }
 
 inputbar {
-    color: @nord6;
-    padding: 11px;
-    background-color: #3b4252;
-
-    border: 1px;
-    border-radius:  6px 6px 0px 0px;
-    border-color: @nord10;
-}
-
-entry, prompt, case-indicator {
-    text-font: inherit;
-    text-color:inherit;
+    enabled:          true;
+    spacing:          10px;
+    padding:          15px;
+    border-radius:    12px;
+    background-color: @bg-alt;
+    children:         [ "prompt", "entry" ];
 }
 
 prompt {
-    margin: 0px 1em 0em 0em ;
+    enabled:          true;
+    background-color: transparent;
+    text-color:       @accent;
+    font:             "JetBrainsMono Nerd Font 16"; /* Bigger icon/prompt */
+}
+
+entry {
+    enabled:          true;
+    background-color: transparent;
+    text-color:       @fg;
+    cursor:           text;
+    placeholder:      "Type to search...";
+    placeholder-color: @grey;
+    font:             "JetBrainsMono Nerd Font 12";
 }
 
 listview {
-    padding: 8px;
-    border-radius: 0px 0px 6px 6px;
-    border-color: @nord10;
-    border: 0px 1px 1px 1px;
-    background-color: rgba(46,52,64,0.9);
-    dynamic: false;
+    enabled:          true;
+    columns:          1;
+    lines:            12;
+    cycle:            true;
+    dynamic:          true;
+    scrollbar:        false;
+    layout:           vertical;
+    reverse:          false;
+    fixed-height:     true;
+    fixed-columns:    true;
+    
+    spacing:          8px;
+    background-color: transparent;
 }
 
 element {
-    padding: 3px;
-    vertical-align: 0.5;
-    border-radius: 4px;
+    enabled:          true;
+    spacing:          15px;
+    padding:          12px;
+    border-radius:    12px;
     background-color: transparent;
-    color: @foreground;
-    text-color: rgb(216, 222, 233);
+    text-color:       @fg;
+    cursor:           pointer;
 }
 
-element selected.normal {
-	background-color: @nord7;
-	text-color: #2e3440;
+/* The "Beautiful" Selection: Subtle glow and lift */
+element selected {
+    background-color: @selected;
+    text-color:       @accent;
+    /* Using a subtle bottom border for depth instead of a side line */
+    border:           0px 0px 2px 0px;
+    border-color:     @accent;
 }
 
-element-text, element-icon {
-    background-color: inherit;
+element-icon {
+    background-color: transparent;
     text-color:       inherit;
+    size:             32px;
+    cursor:           inherit;
 }
 
-button {
-    padding: 6px;
-    color: @foreground;
-    horizontal-align: 0.5;
-
-    border: 2px 0px 2px 2px;
-    border-radius: 4px 0px 0px 4px;
-    border-color: @foreground;
+element-text {
+    background-color: transparent;
+    text-color:       inherit;
+    cursor:           inherit;
+    vertical-align:   0.5;
+    horizontal-align: 0.0;
 }
 
-button selected normal {
-    border: 2px 0px 2px 2px;
-    border-color: @foreground;
+/* Subtle scroll animations feel */
+#listview {
+    border: 0px;
 }

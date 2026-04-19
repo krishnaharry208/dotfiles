@@ -9,4 +9,4 @@ configuration {
   display-combi: "center";   /* Combi icon */
 }
 
-@theme "themes/sidetab-nord.rasi"
+@theme "themes/sidelook.rasi"
