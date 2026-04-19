@@ -34,6 +34,11 @@ sudo ./install.sh
 curl -fsSL https://raw.githubusercontent.com/krishnaharry208/dotfiles/main/install.sh | sudo bash
 ```
 
+#this is autotilling manager this is also compulsory
+```bash
+./install_autotiling.sh
+```
+
 ✔ Fastest way to install
 ✔ Perfect for fresh systems
 
