@@ -1,81 +1,153 @@
 # 🛠️ Dotfiles Setup (Debian + i3wm)
 
-Welcome to my personal dotfiles repository! This setup is built for speed, minimalism, and keyboard-driven productivity on **Debian ** using **i3wm**. 
+Personal dotfiles for a fast, minimal, and keyboard-driven Linux workflow on **Debian** with **i3wm**.
 
-Configurations are dynamically managed and symlinked using **GNU Stow**.
-
-![Rice Overview](https://img.shields.io/badge/Environment-i3wm-blue?style=for-the-badge&logo=i3)
-![Distro](https://img.shields.io/badge/OS-Debian%20Trixie-D10A34?style=for-the-badge&logo=debian)
-![Theme](https://img.shields.io/badge/Theme-Nord%20%2F%20Tokyo%20Night-7aa2f7?style=for-the-badge)
+Managed with **GNU Stow** for clean and modular configuration deployment.
 
 ---
 
-## 📦 What's Inside?
+## ✨ Features
 
-| Component | Application | Description |
-| :--- | :--- | :--- |
-| **WM** | `i3wm` | Tiling window manager configured with dynamic autotiling |
-| **Terminal** | `Alacritty` | GPU-accelerated terminal emulator |
-| **Status Bar** | `Polybar` | Fully customized bar featuring system monitors and controls |
-| **Launcher** | `Rofi` | Clean application launcher and powermenu launcher |
-| **Compositor** | `Picom` | For smooth animations, blurs, and true window transparency |
-| **System Info** | `Fastfetch` | Modern and fast system information fetcher |
-| **File Manager**| `Thunar` | Lightweight and reliable graphical file manager |
+* 🪟 **i3wm** with automatic split orientation using `autotiling`
+* 🚀 GPU-accelerated **Alacritty** terminal
+* 📊 Customized **Polybar**
+* 🔍 Fast application launcher with **Rofi**
+* 🎨 Transparent windows and effects via **Picom**
+* 💻 Modern system information with **Fastfetch**
+* 📁 Lightweight file manager using **Thunar**
+* 🔗 Modular dotfiles managed with **GNU Stow**
 
 ---
 
-## 🚀 Automated Installation
+## 📦 Included Configurations
 
-The master installation script handles everything out of the box: full system package updates, core dependencies, automated Python pip environments for autotiling, font rendering configurations, backups, and linking.
+| Component      | Application | Purpose                             |
+| -------------- | ----------- | ----------------------------------- |
+| Window Manager | i3wm        | Dynamic tiling window manager       |
+| Terminal       | Alacritty   | GPU-accelerated terminal            |
+| Status Bar     | Polybar     | System information and controls     |
+| Launcher       | Rofi        | Application launcher and power menu |
+| Compositor     | Picom       | Transparency and visual effects     |
+| System Info    | Fastfetch   | Display system information          |
+| File Manager   | Thunar      | Lightweight file manager            |
 
-### 🔹 Option 1: Full Setup with Dependencies (Recommended First-Time)
-Installs all system packages, fonts, and deploys configurations:
+---
+
+## 🚀 Installation
+
+### Full Setup (Recommended)
+
+Installs dependencies, fonts, and configures the system.
+
 ```bash
 git clone https://github.com/krishnaharry208/dotfiles.git
 cd dotfiles
+
+chmod +x install.sh
 ./install.sh
-```
-
-### 🔹 Option 2: Stow-Only Deployment (Configs Already Exist)
-If dependencies are already installed, just deploy symlinks:
-```bash
-cd ~/dotfiles
-./stow-install.sh
-```
-
-Or manually with stow:
-```bash
-cd ~/dotfiles
-stow i3 alacritty picom polybar rofi fastfetch
 ```
 
 ---
 
-## 📚 Understanding Stow
+### Stow-Only Setup
 
-This repository uses **GNU Stow** to manage symlinks. Each configuration package (i3, alacritty, etc.) contains a `.config/` directory that mirrors your home directory structure.
+If dependencies are already installed:
 
-**For detailed stow usage**, see [STOW_SETUP.md](./STOW_SETUP.md) for:
-- How stow works
-- Common commands (deploy, undo, restow)
-- Troubleshooting symlink conflicts
-- Updating configurations
-
-### Quick Stow Reference
 ```bash
-# Deploy specific app configs
+cd ~/dotfiles
+
+stow alacritty
+stow fastfetch
 stow i3
-
-# Deploy multiple apps
-stow i3 alacritty polybar
-
-# Remove symlinks (don't delete files)
-stow -D i3
-
-# Recreate symlinks
-stow -R i3
-
-# Dry-run (see what would happen)
-stow --simulate i3
+stow picom
+stow polybar
+stow rofi
 ```
 
+Or deploy everything:
+
+```bash
+stow */
+```
+
+---
+
+## 📚 GNU Stow Usage
+
+Deploy a package:
+
+```bash
+stow i3
+```
+
+Deploy multiple packages:
+
+```bash
+stow i3 alacritty polybar
+```
+
+Remove symlinks:
+
+```bash
+stow -D i3
+```
+
+Restow after changes:
+
+```bash
+stow -R i3
+```
+
+Dry-run without making changes:
+
+```bash
+stow -nv i3
+```
+
+---
+
+## 📂 Repository Structure
+
+```text
+dotfiles/
+├── alacritty/
+├── fastfetch/
+├── i3/
+├── picom/
+├── polybar/
+├── rofi/
+├── install.sh
+├── STOW_SETUP.md
+└── README.md
+```
+
+Each package mirrors the layout of `$HOME`, allowing GNU Stow to create symlinks automatically.
+
+---
+
+## 🔄 Updating
+
+Update the repository:
+
+```bash
+cd ~/dotfiles
+git pull
+```
+
+Recreate symlinks:
+
+```bash
+stow -R */
+```
+
+---
+
+## 🖼️ Preview
+
+*(Add screenshots here)*
+
+---
+
+## 📄 License
+
+Feel free to use, modify, and adapt these dotfiles for your own setup.
