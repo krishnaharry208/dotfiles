@@ -31,8 +31,7 @@ The master installation script handles everything out of the box: full system pa
 ### 🔹 Option 1: Git Clone (Recommended for Customization)
 Clone the repository locally to tweak scripts before executing them:
 ```bash
-git clone [https://github.com/krishnaharry208/dotfiles.git](https://github.com/krishnaharry208/dotfiles.git)
+git clone https://github.com/krishnaharry208/dotfiles.git
 cd dotfiles
-chmod +x install.sh
 ./install.sh
 
