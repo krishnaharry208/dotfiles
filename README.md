@@ -2,7 +2,7 @@
 
 Personal dotfiles for a fast, minimal, and keyboard-driven Linux workflow on **Debian** with **i3wm**.
 
-Managed with **GNU Stow** for clean and modular configuration deployment.
+Configuration files are managed with **GNU Stow** for clean, modular, and easy deployment.
 
 ---
 
@@ -43,8 +43,8 @@ Installs dependencies, fonts, and configures the system.
 git clone https://github.com/krishnaharry208/dotfiles.git
 cd dotfiles
 
-chmod +x install.sh
-./install.sh
+chmod +x ins/install.sh
+./ins/install.sh
 ```
 
 ---
@@ -111,17 +111,25 @@ stow -nv i3
 ```text
 dotfiles/
 ├── alacritty/
+│   └── .config/alacritty/alacritty.toml
 ├── fastfetch/
+│   └── .config/fastfetch/config.jsonc
 ├── i3/
+│   └── .config/i3/config
 ├── picom/
+│   └── .config/picom/picom.conf
 ├── polybar/
+│   └── .config/polybar/
 ├── rofi/
-├── install.sh
+│   └── .config/rofi/
+├── ins/
+│   ├── install.sh
+│   └── README.md
 ├── STOW_SETUP.md
 └── README.md
 ```
 
-Each package mirrors the layout of `$HOME`, allowing GNU Stow to create symlinks automatically.
+Each package mirrors the standard `$HOME` directory structure, allowing GNU Stow to create symlinks automatically in their correct locations.
 
 ---
 
