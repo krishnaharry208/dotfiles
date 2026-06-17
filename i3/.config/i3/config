@@ -1,4 +1,4 @@
-############
+ ############
 set $mod Mod4
 
 # font
@@ -149,6 +149,7 @@ for_window [class=".*"] border pixel 2
 new_window none
 gaps inner 2
 gaps outer 2
+
 
 
 

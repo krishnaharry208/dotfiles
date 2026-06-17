@@ -1,3 +1,4 @@
+
 #!/usr/bin/env bash
 
 # 1. Define the bar name (matches [bar/example] in config)
