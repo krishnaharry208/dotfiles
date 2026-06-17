@@ -28,10 +28,54 @@ Configurations are dynamically managed and symlinked using **GNU Stow**.
 
 The master installation script handles everything out of the box: full system package updates, core dependencies, automated Python pip environments for autotiling, font rendering configurations, backups, and linking.
 
-### 🔹 Option 1: Git Clone (Recommended for Customization)
-Clone the repository locally to tweak scripts before executing them:
+### 🔹 Option 1: Full Setup with Dependencies (Recommended First-Time)
+Installs all system packages, fonts, and deploys configurations:
 ```bash
 git clone https://github.com/krishnaharry208/dotfiles.git
 cd dotfiles
 ./install.sh
+```
+
+### 🔹 Option 2: Stow-Only Deployment (Configs Already Exist)
+If dependencies are already installed, just deploy symlinks:
+```bash
+cd ~/dotfiles
+./stow-install.sh
+```
+
+Or manually with stow:
+```bash
+cd ~/dotfiles
+stow i3 alacritty picom polybar rofi fastfetch
+```
+
+---
+
+## 📚 Understanding Stow
+
+This repository uses **GNU Stow** to manage symlinks. Each configuration package (i3, alacritty, etc.) contains a `.config/` directory that mirrors your home directory structure.
+
+**For detailed stow usage**, see [STOW_SETUP.md](./STOW_SETUP.md) for:
+- How stow works
+- Common commands (deploy, undo, restow)
+- Troubleshooting symlink conflicts
+- Updating configurations
+
+### Quick Stow Reference
+```bash
+# Deploy specific app configs
+stow i3
+
+# Deploy multiple apps
+stow i3 alacritty polybar
+
+# Remove symlinks (don't delete files)
+stow -D i3
+
+# Recreate symlinks
+stow -R i3
+
+# Dry-run (see what would happen)
+stow --simulate i3
+```
 
